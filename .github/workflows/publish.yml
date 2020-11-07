@@ -1,0 +1,21 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        run: |
+          echo ${{ secrets.CONTAINER_REGISTRY_GITHUB_TOKEN }} | docker login ghcr.io -u ${{ secrets.USERNAME_GITHUB }} --password-stdin
+      - name: Build images
+        run: |
+          docker build -t ghcr.io/badsyntax/base-nginx:latest base-nginx
+      - name: Deploy images
+        run: |
+          docker push ghcr.io/badsyntax/base-nginx:latest
