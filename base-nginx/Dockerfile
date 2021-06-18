@@ -8,4 +8,6 @@ LABEL org.label-schema.vcs-url="https://github.com/badsyntax/docker"
 LABEL org.label-schema.usage="README.md"
 LABEL org.label-schema.vendor="badsyntax"
 
+RUN adduser --system --no-create-home --shell /bin/false www-data -u 1000
+
 COPY ./nginx /etc/nginx
