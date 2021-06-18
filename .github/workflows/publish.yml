@@ -30,8 +30,8 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./base-nginx
+          file: ./base-nginx/Dockerfile
           push: true
           platforms: linux/arm64
           tags: ghcr.io/badsyntax/base-nginx:latest
