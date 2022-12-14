@@ -1,4 +1,4 @@
-FROM nginx:1.21.1-alpine
+FROM nginx:1.23.3-alpine
 
 LABEL maintainer Richard Willis <willis.rh@gmail.com>
 LABEL org.opencontainers.image.source https://github.com/badsyntax/docker
